@@ -59,14 +59,23 @@ for (i in seq_along(ficheros_puntos)) {
   stringsAsFactors = FALSE
 )
 
-evalua_df <- df[order(df$apellidos), ]
-write_xlsx(evalua_df, "NotasRIntermedio.xlsx")
+df_nuevo <- df[order(df$apellidos), ]
+write_xlsx(df_nuevo, "NotasRIntermedio.xlsx")
 ```
 
--Ahora, voyt a cargar y limpiar los datos.
+-Ahora, voy a cargar y limpiar los datos.
 ```{r}
 alumnos_matriculados <- read_excel("AlumnosTD25_26.xlsx")
 alumnos_matriculados$Apellidos_UP <- toupper(alumnos_matriculados$`Apellido`)
-evalua_df$apellidos_UP <- toupper(evalua_df$apellidos)
+df_nuevo$apellidos_UP <- toupper(df_nuevo$apellidos)
+```
+
+-Ahora voy a cruzar las listas para poder asignar las notas a cada estudiante.
+
+```{r}
+alumnos_notas_f <- merge(x = alumnos_matriculados,y = df_nuevo, 
+by.x = "Apellidos_UP",by.y = "apellidos_UP",all.x = T)
+alumnos_notas_f$Apellidos_UP <- NULL
+write_xlsx(alumnos_notas_f, "AlumnosNotas.xlsx")
 ```
 
