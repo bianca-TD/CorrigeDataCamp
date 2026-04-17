@@ -11,3 +11,9 @@ library(writexl)
 library(stringr)
 ```
 
+-Ahora, vamos a ponerles nombres mas sencillos a los archivos para poder trabajar mejor con ellos.
+```{r}
+archivo_zip <- "2025-26 Tractament de les dades Gr.A-T (36423)-Tarea Intermediate R(Datacamp)-3281647.zip"
+archivo_alumnos <- "AlumnosTD25_26.xlsx"
+```
+
