@@ -17,3 +17,12 @@ archivo_zip <- "2025-26 Tractament de les dades Gr.A-T (36423)-Tarea Intermediat
 archivo_alumnos <- "AlumnosTD25_26.xlsx"
 ```
 
+-Ahora vamos a abrir nuestro archivo zip y buscar.
+```{r}
+unzip(archivo_zip, exdir = "entregas")
+archivos <- list.files("entregas", recursive = T, full.names = T)
+puntos <- grep("puntos\\.txt$", archivos, ignore.case = T, value = T)
+certificado <- grep("certificado",archivos, ignore.case = TRUE, value = TRUE)
+```
+
+
