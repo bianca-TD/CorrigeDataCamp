@@ -24,5 +24,18 @@ archivos <- list.files("entregas", recursive = T, full.names = T)
 puntos <- grep("puntos\\.txt$", archivos, ignore.case = T, value = T)
 certificado <- grep("certificado",archivos, ignore.case = TRUE, value = TRUE)
 ```
+-Después de esto, vamos a extraer la información.
+
+```{r}
+lista_de_res <- lapply(puntos, function(x){
+  partes <- unlist(strsplit(x,"/"))
+  alumnos <- partes[2]
+  apellidos <- unlist(strspllit(alumnos, ""))[1]
+  leer <- readLines(ruta, warn = F)
+  puntos <- as.numeric(str_extraxt(leer,"\\d+"))
+})
+
+```
+
 
 
