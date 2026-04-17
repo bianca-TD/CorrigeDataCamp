@@ -63,3 +63,10 @@ evalua_df <- df[order(df$apellidos), ]
 write_xlsx(evalua_df, "NotasRIntermedio.xlsx")
 ```
 
+-Ahora, voyt a cargar y limpiar los datos.
+```{r}
+alumnos_matriculados <- read_excel("AlumnosTD25_26.xlsx")
+alumnos_matriculados$Apellidos_UP <- toupper(alumnos_matriculados$`Apellido`)
+evalua_df$apellidos_UP <- toupper(evalua_df$apellidos)
+```
+
