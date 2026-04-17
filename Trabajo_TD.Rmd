@@ -86,5 +86,17 @@ write_xlsx(alumnos_notas_f, "AlumnosNotas.xlsx")
 unique(evalua_df$NomFile)
 #Podemos ver que no todos usaron puntos.txt, sino que usaron en total 14 nombres distintos para referirse a los puntos del datacamp.
 
+#2.¿cuántas variantes hay ?
+personas <- unique(evalua_df$NomFile)
+length(personas)
+#Hay 14 variantes
+
+#3.¿Todas las entregas contienen el fichero de puntos y el justificante?
+
+carpetas_puntos <- unique(dirname(ficheros_puntos))
+carpetas_justificantes <- unique(dirname(ficheros_justificantes))
+length(carpetas_puntos)
+length(carpetas_justificantes)
+#No, hay mas carpetas con justificantes que con puntos subidos.
 ```
 
